@@ -1,0 +1,21 @@
+site_name: Plano de Estudos - Preparação Tech
+site_description: Planos de estudos organizados
+repo_name: thaifurforo/plano-estudos
+repo_url: https://github.com/thaifurforo/plano-estudos
+theme:
+  name: material
+  language: pt-BR
+plugins:
+  - search
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+nav:
+  - Home: index.md
+  - LeetCode:
+    - Visão Geral: leetcode/index.md
+  - System Design:
+    - Visão Geral: system-design/index.md
+  - Soft Skills:
+    - Visão Geral: soft-skills/index.md
