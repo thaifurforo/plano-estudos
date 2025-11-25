@@ -1,0 +1,3 @@
+# Soft Skills - 07-cronograma-6-semanas
+
+Conteúdo em desenvolvimento para este tópico de Soft Skills...

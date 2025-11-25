@@ -1,21 +1,103 @@
-site_name: Plano de Estudos - Preparação Tech
-site_description: Planos de estudos organizados
+site_name: Plano de Estudos - Preparação para Entrevistas Tech
+site_description: Planos de estudos completos e estruturados para preparação em entrevistas técnicas (LeetCode, System Design, Soft Skills)
+site_author: Thai Furforo
+site_url: https://thaifurforo.github.io/plano-estudos/
+
 repo_name: thaifurforo/plano-estudos
 repo_url: https://github.com/thaifurforo/plano-estudos
+
 theme:
   name: material
   language: pt-BR
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Modo escuro
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
 plugins:
-  - search
+  - search:
+      lang: pt
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: datetime
+
 markdown_extensions:
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+  - md_in_html
+
 nav:
   - Home: index.md
   - LeetCode:
-    - Visão Geral: leetcode/index.md
+    - Visão Geral: leetcode/README.md
+    - Introdução: leetcode/01-introducao.md
+    - 150 Problemas: leetcode/02-lista-150-problemas.md
+    - Cronograma 12 Semanas: leetcode/03-cronograma-12-semanas.md
+    - Padrões de Algoritmos: leetcode/04-padroes-algoritmos.md
+    - Templates de Código: leetcode/05-templates-codigo.md
+    - Dicas de Entrevista: leetcode/06-dicas-entrevista.md
+    - Recursos: leetcode/recursos.md
   - System Design:
-    - Visão Geral: system-design/index.md
+    - Visão Geral: system-design/README.md
+    - Introdução: system-design/01-introducao.md
+    - Componentes Fundamentais: system-design/02-componentes-fundamentais.md
+    - Conceitos de Escalabilidade: system-design/03-conceitos-escalabilidade.md
+    - Padrões de Arquitetura: system-design/04-padroes-arquitetura.md
+    - Estudos de Caso: system-design/05-estudos-caso.md
+    - Cronograma 8 Semanas: system-design/06-cronograma-8-semanas.md
+    - Framework de Entrevista: system-design/07-framework-entrevista.md
+    - Recursos: system-design/recursos.md
   - Soft Skills:
-    - Visão Geral: soft-skills/index.md
+    - Visão Geral: soft-skills/README.md
+    - Comunicação: soft-skills/01-comunicacao.md
+    - Liderança: soft-skills/02-lideranca.md
+    - Trabalho em Equipe: soft-skills/03-trabalho-equipe.md
+    - Resolução de Conflitos: soft-skills/04-resolucao-conflitos.md
+    - Gestão de Tempo: soft-skills/05-gestao-tempo.md
+    - Entrevistas Comportamentais: soft-skills/06-entrevistas-comportamentais.md
+    - Cronograma 6 Semanas: soft-skills/07-cronograma-6-semanas.md
+    - Recursos: soft-skills/recursos.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/thaifurforo
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/thaifurforo
+
+copyright: Copyright &copy; 2024 Thai Furforo
