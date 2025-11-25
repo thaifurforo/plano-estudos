@@ -1,0 +1,3 @@
+# Soft Skills - 02-lideranca
+
+Conteúdo em desenvolvimento para este tópico de Soft Skills...
