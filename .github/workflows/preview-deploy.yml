@@ -67,6 +67,9 @@ jobs:
             exit 1
           fi
           
+          # Move built site to temporary location before switching branches
+          mv site /tmp/site-preview-backup
+          
           # Clone the gh-pages branch or create orphan if it doesn't exist
           git fetch origin gh-pages || true
           git checkout -B gh-pages origin/gh-pages || git checkout --orphan gh-pages
@@ -76,7 +79,8 @@ jobs:
           
           # Copy built site to preview directory (including hidden files)
           rm -rf "preview/${SAFE_BRANCH_NAME}"/*
-          cp -r site/. "preview/${SAFE_BRANCH_NAME}/"
+          cp -r /tmp/site-preview-backup/. "preview/${SAFE_BRANCH_NAME}/"
+          rm -rf /tmp/site-preview-backup
           
           # Commit and push
           git add "preview/${SAFE_BRANCH_NAME}"
