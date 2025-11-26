@@ -68,8 +68,8 @@ jobs:
             git add preview
           fi
           
-          # Copy new site to root
-          cp -r site/* .
+          # Copy new site to root (including hidden files)
+          cp -r site/. .
           rm -rf site
           
           # Add .nojekyll to ensure GitHub Pages serves all files

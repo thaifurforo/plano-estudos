@@ -74,9 +74,9 @@ jobs:
           # Create preview directory if it doesn't exist
           mkdir -p "preview/${SAFE_BRANCH_NAME}"
           
-          # Copy built site to preview directory
+          # Copy built site to preview directory (including hidden files)
           rm -rf "preview/${SAFE_BRANCH_NAME}"/*
-          cp -r site/* "preview/${SAFE_BRANCH_NAME}/"
+          cp -r site/. "preview/${SAFE_BRANCH_NAME}/"
           
           # Commit and push
           git add "preview/${SAFE_BRANCH_NAME}"
