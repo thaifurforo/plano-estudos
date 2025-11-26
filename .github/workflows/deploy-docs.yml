@@ -54,12 +54,11 @@ jobs:
           
           # Keep only the preview directory if it exists
           if [ -d "preview" ]; then
-            mv preview /tmp/preview-backup
+            cp -r preview /tmp/preview-backup
           fi
           
-          # Clear everything
-          git rm -rf . 2>/dev/null || true
-          rm -rf * .??* 2>/dev/null || true
+          # Clear everything except .git directory
+          find . -maxdepth 1 -not -name '.git' -not -name '.' -not -name '..' -exec rm -rf {} + 2>/dev/null || true
           
           # Restore preview directory
           if [ -d "/tmp/preview-backup" ]; then
@@ -74,6 +73,8 @@ jobs:
           touch .nojekyll
           
           # Commit and push
-          git add .
-          git commit -m "Deploy main branch to GitHub Pages" || echo "No changes to commit"
-          git push -f origin gh-pages-temp:gh-pages
+          git add -A
+          git diff --staged --quiet || git commit -m "Deploy main branch to GitHub Pages"
+          
+          # Try to push, if it fails due to conflicts, pull and retry once
+          git push origin gh-pages-temp:gh-pages || (git pull --rebase origin gh-pages && git push origin gh-pages-temp:gh-pages)

@@ -30,10 +30,18 @@ jobs:
           pip install -r requirements.txt
           
       - name: Configure MkDocs for preview
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
         run: |
           # Create preview URL path based on branch name
-          BRANCH_NAME="${{ github.head_ref }}"
-          SAFE_BRANCH_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]')
+          # Sanitize branch name to prevent command injection
+          SAFE_BRANCH_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9._-]/-/g' | tr '[:upper:]' '[:lower:]' | cut -c1-50)
+          
+          # Validate that SAFE_BRANCH_NAME is not empty and contains only safe characters
+          if [[ ! "$SAFE_BRANCH_NAME" =~ ^[a-z0-9._-]+$ ]]; then
+            echo "Error: Invalid branch name after sanitization"
+            exit 1
+          fi
           
           # Update mkdocs.yml to use the preview path
           sed -i "s|site_url:.*|site_url: https://${{ github.repository_owner }}.github.io/plano-estudos/preview/$SAFE_BRANCH_NAME/|g" mkdocs.yml
@@ -67,9 +75,11 @@ jobs:
           
       - name: Comment PR with preview URL
         uses: actions/github-script@v7
+        env:
+          SAFE_BRANCH_NAME: ${{ env.SAFE_BRANCH_NAME }}
         with:
           script: |
-            const branchName = '${{ env.SAFE_BRANCH_NAME }}';
+            const branchName = process.env.SAFE_BRANCH_NAME;
             const previewUrl = `https://${{ github.repository_owner }}.github.io/plano-estudos/preview/${branchName}/`;
             
             // Find existing comment
@@ -116,17 +126,26 @@ jobs:
           ref: gh-pages
           
       - name: Remove preview directory
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          BRANCH_NAME="${{ github.head_ref }}"
-          SAFE_BRANCH_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]')
+          # Sanitize branch name to prevent command injection
+          SAFE_BRANCH_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9._-]/-/g' | tr '[:upper:]' '[:lower:]' | cut -c1-50)
+          
+          # Validate that SAFE_BRANCH_NAME is not empty and contains only safe characters
+          if [[ ! "$SAFE_BRANCH_NAME" =~ ^[a-z0-9._-]+$ ]]; then
+            echo "Error: Invalid branch name after sanitization"
+            exit 1
+          fi
           
           if [ -d "preview/$SAFE_BRANCH_NAME" ]; then
             rm -rf "preview/$SAFE_BRANCH_NAME"
             git add preview
-            git commit -m "Remove preview for ${{ github.head_ref }} (PR #${{ github.event.pull_request.number }})" || echo "No changes to commit"
+            git commit -m "Remove preview for PR #${PR_NUMBER}" || echo "No changes to commit"
             git push origin gh-pages
           else
             echo "Preview directory does not exist, nothing to clean up"
