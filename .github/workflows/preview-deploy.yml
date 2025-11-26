@@ -81,10 +81,12 @@ jobs:
         uses: actions/github-script@v7
         env:
           SAFE_BRANCH_NAME: ${{ env.SAFE_BRANCH_NAME }}
+          REPO_OWNER: ${{ github.repository_owner }}
         with:
           script: |
             const branchName = process.env.SAFE_BRANCH_NAME;
-            const previewUrl = `https://${{ github.repository_owner }}.github.io/plano-estudos/preview/${branchName}/`;
+            const repoOwner = process.env.REPO_OWNER;
+            const previewUrl = `https://${repoOwner}.github.io/plano-estudos/preview/${branchName}/`;
             
             // Find existing comment
             const { data: comments } = await github.rest.issues.listComments({
