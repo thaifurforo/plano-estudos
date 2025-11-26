@@ -74,11 +74,11 @@ jobs:
           git fetch origin gh-pages || true
           git checkout -B gh-pages origin/gh-pages || git checkout --orphan gh-pages
           
-          # Create preview directory if it doesn't exist
+          # Remove and recreate preview directory to ensure clean state
+          rm -rf "preview/${SAFE_BRANCH_NAME}"
           mkdir -p "preview/${SAFE_BRANCH_NAME}"
           
           # Copy built site to preview directory (including hidden files)
-          rm -rf "preview/${SAFE_BRANCH_NAME}"/*
           cp -r /tmp/site-preview-backup/. "preview/${SAFE_BRANCH_NAME}/"
           rm -rf /tmp/site-preview-backup
           
