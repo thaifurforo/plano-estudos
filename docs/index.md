@@ -1,13 +1,13 @@
-# 📚 Plano de Estudos - Preparação para Entrevistas Tech
+# 📚 Plano de Estudos - Crescimento para Sênior
 
-Bem-vindo ao seu guia completo de preparação para entrevistas técnicas! Este site contém planos de estudos estruturados e organizados para ajudá-lo a conquistar sua vaga em empresas de tecnologia.
+Bem-vindo ao seu guia completo para crescimento de carreira em engenharia de software! Este site contém planos de estudos estruturados e organizados para ajudá-lo a desenvolver as habilidades necessárias para atuar em nível sênior.
 
 ## 🎯 Visão Geral
 
-Este repositório oferece **três pilares fundamentais** para sua preparação:
+Este repositório oferece **três pilares fundamentais** para seu desenvolvimento profissional:
 
 ### 💻 LeetCode
-Domine os **150 problemas mais importantes** do LeetCode para entrevistas técnicas em empresas FAANG e similares.
+Domine os **150 problemas mais importantes** do LeetCode para fortalecer suas habilidades em algoritmos e estruturas de dados.
 
 [➡️ Começar com LeetCode](leetcode/index.md)
 
@@ -17,7 +17,7 @@ Aprenda a projetar sistemas escaláveis e robustos com **10+ estudos de caso** d
 [➡️ Explorar System Design](system-design/index.md)
 
 ### 🤝 Soft Skills
-Desenvolva habilidades comportamentais essenciais com o **método STAR** e 20+ exemplos práticos.
+Desenvolva habilidades comportamentais essenciais para liderança e crescimento profissional com 20+ exemplos práticos.
 
 [➡️ Desenvolver Soft Skills](soft-skills/index.md)
 
@@ -25,7 +25,7 @@ Desenvolva habilidades comportamentais essenciais com o **método STAR** e 20+ e
 
 - **150** problemas LeetCode prioritários
 - **10+** estudos de caso de System Design
-- **20+** exemplos de entrevistas comportamentais
+- **20+** exemplos de situações profissionais
 - **26 semanas** de conteúdo (~6 meses)
 
 ## 🗓️ Cronograma Geral
@@ -59,4 +59,4 @@ Utilize a planilha Google Sheets para acompanhar seu progresso:
 
 ---
 
-**Boa sorte nos estudos! 🚀**
+**Boa sorte nos estudos e no crescimento da sua carreira! 🚀**
