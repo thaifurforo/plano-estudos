@@ -1,0 +1,84 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-deploy"
+  cancel-in-progress: false
+
+jobs:
+  deploy-main:
+    # Only deploy on push to main, when PR is merged, or manual trigger
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true) || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Build MkDocs
+        run: |
+          mkdocs build
+          
+      - name: Deploy to gh-pages root
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Clone gh-pages branch or create if it doesn't exist
+          git fetch origin gh-pages || true
+          git checkout -B gh-pages origin/gh-pages || git checkout --orphan gh-pages
+          
+          # Keep only the preview directory if it exists
+          if [ -d "preview" ]; then
+            cp -r preview /tmp/preview-backup
+          fi
+          
+          # Clear everything in working directory except .git
+          # First remove tracked files, then untracked files
+          if git ls-files | grep -q .; then
+            git rm -rf .
+          fi
+          git clean -fd
+          
+          # Restore preview directory
+          if [ -d "/tmp/preview-backup" ]; then
+            mv /tmp/preview-backup preview
+            git add preview
+          fi
+          
+          # Copy new site to root (including hidden files)
+          cp -r site/. .
+          rm -rf site
+          
+          # Add .nojekyll to ensure GitHub Pages serves all files
+          touch .nojekyll
+          
+          # Commit and push
+          git add -A
+          git diff --staged --quiet || git commit -m "Deploy main branch to GitHub Pages"
+          
+          # Push with lease to prevent accidental overwrites
+          # Check against the remote gh-pages state
+          git push --force-with-lease=gh-pages origin gh-pages:gh-pages

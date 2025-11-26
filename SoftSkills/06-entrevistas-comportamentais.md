@@ -1,0 +1,3 @@
+# Soft Skills - 06-entrevistas-comportamentais
+
+Conteúdo em desenvolvimento para este tópico de Soft Skills...
