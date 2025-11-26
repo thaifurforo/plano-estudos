@@ -2,7 +2,7 @@
 
 ## 🎯 Visão Geral
 
-Este plano de estudos focado em LeetCode foi desenvolvido para cobrir os **150 problemas mais importantes** para entrevistas técnicas, organizados por padrões algorítmicos e com um cronograma estruturado de **12 semanas**.
+Este plano de estudos focado em LeetCode foi desenvolvido para cobrir os **150 problemas mais importantes** para fortalecer suas habilidades em algoritmos e estruturas de dados, organizados por padrões algorítmicos e com um cronograma estruturado de **12 semanas**.
 
 ## 📊 Estatísticas do Plano
 
@@ -19,7 +19,7 @@ Este plano de estudos focado em LeetCode foi desenvolvido para cobrir os **150 p
 3. **[Cronograma de 12 Semanas](03-cronograma-12-semanas.md)** - Plano semanal detalhado
 4. **[Padrões de Algoritmos](04-padroes-algoritmos.md)** - Guia completo de técnicas
 5. **[Templates de Código](05-templates-codigo.md)** - Templates Python para cada padrão
-6. **[Dicas para Entrevistas](06-dicas-entrevista.md)** - Como se destacar em entrevistas
+6. **[Dicas Práticas](06-dicas-entrevista.md)** - Como aplicar algoritmos de forma eficiente
 7. **[Recursos Adicionais](recursos.md)** - Links e materiais complementares
 
 ## 📚 Categorias de Problemas

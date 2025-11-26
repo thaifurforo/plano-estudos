@@ -1,7 +1,7 @@
 # 💻 LeetCode - Plano de Estudos
 
 ## 🎯 Objetivo: 
-Dominar os 150 problemas mais importantes do LeetCode para entrevistas técnicas em empresas top (FAANG e similares)
+Dominar os 150 problemas mais importantes do LeetCode para fortalecer habilidades em algoritmos e estruturas de dados essenciais para engenheiros de nível sênior
 
 ## 📊 Visão Geral: 
 Duração 12 semanas, 150 problemas selecionados, 2-3 horas por dia, Dificuldade: Easy (30), Medium (95), Hard (25)
