@@ -81,9 +81,9 @@ gh-pages branch
    - O preview será removido automaticamente
    - Um comentário confirmará a limpeza
 
-## Configuração Necessária
+## ⚠️ Configuração Necessária no Repositório
 
-### Permissões do GitHub Actions
+### Passo 1: Permissões do GitHub Actions
 
 O repositório precisa ter as seguintes configurações:
 
@@ -91,13 +91,29 @@ O repositório precisa ter as seguintes configurações:
    - Workflow permissions: "Read and write permissions"
    - Allow GitHub Actions to create and approve pull requests: ✓
 
-2. **Settings > Pages**:
-   - Source: "Deploy from a branch"
-   - Branch: `gh-pages` / `/ (root)`
+### Passo 2: Configurar GitHub Pages (CRÍTICO)
+
+**Esta é a configuração mais importante!** Sem ela, os deploys não funcionarão.
+
+1. Acesse: **Settings > Pages**
+2. Em **"Build and deployment"**:
+   - **Source**: Selecione **"Deploy from a branch"**
+   - **Branch**: Selecione **`gh-pages`** e **`/ (root)`**
+   - Clique em **"Save"**
 
 ### Secrets Necessários
 
 Nenhum secret adicional é necessário. Os workflows usam o `GITHUB_TOKEN` padrão.
+
+### Verificação
+
+Após configurar:
+1. Faça um push na branch `main`
+2. O workflow deve executar e criar/atualizar a branch `gh-pages`
+3. Após alguns minutos, o site deve estar disponível em:
+   - https://thaifurforo.github.io/plano-estudos/
+
+📖 **Para instruções detalhadas, veja:** [GITHUB_PAGES_SETUP.md](../../GITHUB_PAGES_SETUP.md)
 
 ## Testando Localmente
 
