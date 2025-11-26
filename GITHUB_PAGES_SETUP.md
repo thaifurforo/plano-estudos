@@ -130,13 +130,20 @@ Após configurar, você pode verificar se está funcionando:
 
 Os workflows já estão configurados com as permissões corretas:
 
+**Deploy Principal (`deploy-docs.yml`):**
 ```yaml
 permissions:
   contents: write      # Necessário para push na branch gh-pages
-  pages: write         # Necessário para GitHub Pages
-  id-token: write      # Necessário para autenticação
-  pull-requests: write # Necessário para comentar em PRs (preview)
 ```
+
+**Deploy de Preview (`preview-deploy.yml`):**
+```yaml
+permissions:
+  contents: write      # Necessário para push na branch gh-pages
+  pull-requests: write # Necessário para comentar em PRs
+```
+
+**Nota:** As permissões `pages: write` e `id-token: write` só são necessárias quando se usa a ação oficial `actions/deploy-pages`. Como fazemos push manual para a branch `gh-pages`, elas não são necessárias.
 
 ### Segurança
 
