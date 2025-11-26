@@ -46,6 +46,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
+          # Move built site to temporary location before switching branches
+          mv site /tmp/site-backup
+          
           # Clone gh-pages branch or create if it doesn't exist
           git fetch origin gh-pages || true
           git checkout -B gh-pages origin/gh-pages || git checkout --orphan gh-pages
@@ -69,8 +72,8 @@ jobs:
           fi
           
           # Copy new site to root (including hidden files)
-          cp -r site/. .
-          rm -rf site
+          cp -r /tmp/site-backup/. .
+          rm -rf /tmp/site-backup
           
           # Add .nojekyll to ensure GitHub Pages serves all files
           touch .nojekyll
