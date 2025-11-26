@@ -1,0 +1,144 @@
+name: Preview Deploy
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-preview:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Configure MkDocs for preview
+        run: |
+          # Create preview URL path based on branch name
+          BRANCH_NAME="${{ github.head_ref }}"
+          SAFE_BRANCH_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]')
+          
+          # Update mkdocs.yml to use the preview path
+          sed -i "s|site_url:.*|site_url: https://${{ github.repository_owner }}.github.io/plano-estudos/preview/$SAFE_BRANCH_NAME/|g" mkdocs.yml
+          
+          echo "SAFE_BRANCH_NAME=$SAFE_BRANCH_NAME" >> $GITHUB_ENV
+          
+      - name: Build MkDocs
+        run: |
+          mkdocs build
+          
+      - name: Deploy to preview branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Clone the gh-pages branch
+          git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
+          git checkout gh-pages
+          
+          # Create preview directory if it doesn't exist
+          mkdir -p preview/${{ env.SAFE_BRANCH_NAME }}
+          
+          # Copy built site to preview directory
+          rm -rf preview/${{ env.SAFE_BRANCH_NAME }}/*
+          cp -r site/* preview/${{ env.SAFE_BRANCH_NAME }}/
+          
+          # Commit and push
+          git add preview/${{ env.SAFE_BRANCH_NAME }}
+          git commit -m "Deploy preview for ${{ github.head_ref }} (PR #${{ github.event.pull_request.number }})" || echo "No changes to commit"
+          git push origin gh-pages
+          
+      - name: Comment PR with preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branchName = '${{ env.SAFE_BRANCH_NAME }}';
+            const previewUrl = `https://${{ github.repository_owner }}.github.io/plano-estudos/preview/${branchName}/`;
+            
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Preview deployment')
+            );
+            
+            const body = `## 🚀 Preview deployment
+            
+            Preview URL: ${previewUrl}
+            
+            This preview will be automatically deleted when the PR is merged or closed.`;
+            
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }
+
+  cleanup-preview:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          
+      - name: Remove preview directory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          BRANCH_NAME="${{ github.head_ref }}"
+          SAFE_BRANCH_NAME=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:upper:]' '[:lower:]')
+          
+          if [ -d "preview/$SAFE_BRANCH_NAME" ]; then
+            rm -rf "preview/$SAFE_BRANCH_NAME"
+            git add preview
+            git commit -m "Remove preview for ${{ github.head_ref }} (PR #${{ github.event.pull_request.number }})" || echo "No changes to commit"
+            git push origin gh-pages
+          else
+            echo "Preview directory does not exist, nothing to clean up"
+          fi
+          
+      - name: Comment PR about cleanup
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '🧹 Preview deployment has been cleaned up.'
+            });
