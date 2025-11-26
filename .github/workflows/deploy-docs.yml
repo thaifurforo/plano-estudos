@@ -46,9 +46,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Clone gh-pages branch
+          # Clone gh-pages branch or create if it doesn't exist
           git fetch origin gh-pages || true
-          git checkout -B gh-pages-temp origin/gh-pages || git checkout --orphan gh-pages-temp
+          git checkout -B gh-pages origin/gh-pages || git checkout --orphan gh-pages
           
           # Keep only the preview directory if it exists
           if [ -d "preview" ]; then
@@ -56,11 +56,11 @@ jobs:
           fi
           
           # Clear everything in working directory except .git
-          # Remove both tracked and untracked files
-          git clean -fd || true
+          # First remove tracked files, then untracked files
           if git ls-files | grep -q .; then
             git rm -rf .
           fi
+          git clean -fd
           
           # Restore preview directory
           if [ -d "/tmp/preview-backup" ]; then
@@ -80,4 +80,5 @@ jobs:
           git diff --staged --quiet || git commit -m "Deploy main branch to GitHub Pages"
           
           # Push with lease to prevent accidental overwrites
-          git push --force-with-lease origin gh-pages-temp:gh-pages
+          # Check against the remote gh-pages state
+          git push --force-with-lease=gh-pages origin gh-pages:gh-pages

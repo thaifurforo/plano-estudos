@@ -67,9 +67,9 @@ jobs:
             exit 1
           fi
           
-          # Clone the gh-pages branch
-          git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
-          git checkout gh-pages
+          # Clone the gh-pages branch or create orphan if it doesn't exist
+          git fetch origin gh-pages || true
+          git checkout -B gh-pages origin/gh-pages || git checkout --orphan gh-pages
           
           # Create preview directory if it doesn't exist
           mkdir -p "preview/${SAFE_BRANCH_NAME}"
