@@ -1,3 +1,0 @@
-# Soft Skills - 03-trabalho-equipe
-
-Conteúdo em desenvolvimento para este tópico de Soft Skills...

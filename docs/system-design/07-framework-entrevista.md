@@ -1,3 +1,0 @@
-# Sistema de Design - 07-framework-entrevista.md
-
-Conteúdo em desenvolvimento...

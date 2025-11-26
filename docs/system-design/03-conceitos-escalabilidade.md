@@ -1,3 +1,0 @@
-# Sistema de Design - 03-conceitos-escalabilidade.md
-
-Conteúdo em desenvolvimento...

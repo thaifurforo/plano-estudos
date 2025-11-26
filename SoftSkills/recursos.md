@@ -1,3 +1,0 @@
-# Soft Skills - recursos
-
-Conteúdo em desenvolvimento para este tópico de Soft Skills...

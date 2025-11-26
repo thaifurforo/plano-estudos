@@ -1,3 +1,0 @@
-# Sistema de Design - recursos.md
-
-Conteúdo em desenvolvimento...

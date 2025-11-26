@@ -1,3 +1,0 @@
-# Soft Skills - 04-resolucao-conflitos
-
-Conteúdo em desenvolvimento para este tópico de Soft Skills...

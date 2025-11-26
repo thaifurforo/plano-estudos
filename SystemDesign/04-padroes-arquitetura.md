@@ -1,3 +1,0 @@
-# Sistema de Design - 04-padroes-arquitetura.md
-
-Conteúdo em desenvolvimento...

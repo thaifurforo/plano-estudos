@@ -1,3 +1,0 @@
-# Soft Skills - README
-
-Conteúdo em desenvolvimento para este tópico de Soft Skills...
