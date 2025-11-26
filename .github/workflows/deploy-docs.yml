@@ -57,12 +57,14 @@ jobs:
             cp -r preview /tmp/preview-backup
           fi
           
-          # Clear everything except .git directory
-          find . -maxdepth 1 -not -name '.git' -not -name '.' -not -name '..' -exec rm -rf {} + 2>/dev/null || true
+          # Clear everything in working directory except .git
+          # Use git clean for safer file removal
+          git rm -rf . 2>/dev/null || true
           
           # Restore preview directory
           if [ -d "/tmp/preview-backup" ]; then
             mv /tmp/preview-backup preview
+            git add preview
           fi
           
           # Copy new site to root
