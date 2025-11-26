@@ -61,6 +61,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
+          # Validate that site was built successfully
+          if [ ! -d "site" ] || [ -z "$(ls -A site)" ]; then
+            echo "Error: site directory is empty or doesn't exist"
+            exit 1
+          fi
+          
           # Clone the gh-pages branch
           git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
           git checkout gh-pages

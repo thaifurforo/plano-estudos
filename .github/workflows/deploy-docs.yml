@@ -25,10 +25,8 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true) || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: main
         
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -58,7 +56,8 @@ jobs:
           fi
           
           # Clear everything in working directory except .git
-          # Check if there are files to remove first
+          # Remove both tracked and untracked files
+          git clean -fd || true
           if git ls-files | grep -q .; then
             git rm -rf .
           fi
