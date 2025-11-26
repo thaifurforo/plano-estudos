@@ -1,66 +1,64 @@
-# GitHub Copilot Instructions
+# Instruções Personalizadas do GitHub Copilot
 
-## Context
-This document provides comprehensive guidance for leveraging GitHub Copilot to prepare for a Senior Software Engineer position. The focus will include skills, certifications, and resources specific to this role, tailored for Brazilian Portuguese speakers.
+## Contexto do Repositório
+Este repositório contém planos de estudos estruturados para o crescimento de carreira em engenharia de software, focando no desenvolvimento de habilidades técnicas e comportamentais necessárias para atuar em nível sênior. O conteúdo é organizado usando MkDocs e publicado no GitHub Pages.
 
-## Requirements
-### Language
-- Proficiency in Brazilian Portuguese is essential for understanding documentation and resources available in this language.
+## Diretrizes de Desenvolvimento
 
-### Skills Development
-1. **Programming Languages**
-   - Focus on languages relevant to the industry, such as Python, JavaScript, and Go.
-2. **System Design**
-   - Study principles of scalable architecture, microservices, and cloud-based solutions.
-3. **Software Development Practices**
-   - Emphasize agile methodologies, DevOps, and continuous integration/continuous deployment (CI/CD).
+### Idioma e Comunicação
+- Todo o conteúdo deve ser escrito em português brasileiro (pt-BR)
+- Mantenha um tom profissional e educacional
+- Use exemplos práticos e aplicáveis ao mercado brasileiro
 
-### Certifications
-- Explore certification paths that may enhance your profile, such as:
-  - AWS Certified Solutions Architect
-  - Google Cloud Professional Developers
-  - Full Stack Developer certifications.
+### Estrutura do Projeto
+- **docs/**: Contém toda a documentação em Markdown
+  - `index.md`: Página inicial do site
+  - `leetcode/`: Plano de estudos de algoritmos e estruturas de dados
+  - `system-design/`: Plano de estudos de design de sistemas
+  - `soft-skills/`: Plano de estudos de habilidades comportamentais
+- **mkdocs.yml**: Configuração do MkDocs (navegação, tema, plugins)
+- **requirements.txt**: Dependências Python do projeto
 
-## Using MkDocs
-MkDocs is a static site generator that's geared towards project documentation, and it's perfect for creating a personalized study guide.
+### Convenções de Código e Conteúdo
+1. **Arquivos Markdown**:
+   - Use `index.md` como página principal de cada seção
+   - Numere arquivos sequencialmente (ex: `01-introducao.md`, `02-componentes.md`)
+   - Inclua emojis apropriados nos títulos para melhor visualização
+   
+2. **MkDocs**:
+   - Sempre teste mudanças com `mkdocs serve` antes de commitar
+   - Mantenha a estrutura de navegação (nav) sincronizada com os arquivos
+   - Use o tema Material for MkDocs com suporte a modo claro/escuro
+   
+3. **Foco no Conteúdo**:
+   - O objetivo é crescimento de carreira para nível sênior
+   - Evite referências específicas a "preparação para entrevistas"
+   - Enfatize desenvolvimento de habilidades aplicáveis no dia a dia
 
-### Installation
-1. Ensure you have Python installed on your system.
-2. Use pip to install MkDocs:
-   ```bash
-   pip install mkdocs
-   ```
-3. Create a new project:
-   ```bash
-   mkdocs new my-project
-   cd my-project
-   ```
+### Comandos Úteis
+```bash
+# Instalar dependências
+pip install -r requirements.txt
 
-### Development
-- To start a local development server and preview your documentation, run:
-  ```bash
-  mkdocs serve
-  ```
+# Servidor de desenvolvimento local
+mkdocs serve
 
-### Structure Your Documentation
-- Create structured documents in the `docs` directory. Use Markdown for easy formatting. 
-- Example:
-  - `src/` folder for source code.
-  - `docs/` folder for your documentation content.
+# Build do site
+mkdocs build
 
-## Deployment to GitHub Pages
-### Step-by-step Guide
-1. Make sure your `mkdocs.yml` is properly configured. 
-2. Build your documentation:
-   ```bash
-   mkdocs build
-   ```
-3. Deploy to GitHub Pages:
-   ```bash
-   mkdocs gh-deploy
-   ```
+# Deploy para GitHub Pages
+mkdocs gh-deploy
+```
 
-4. Configuring your GitHub repository for Pages:
-   - Go to your repository settings and configure GitHub Pages to serve from the `gh-pages` branch.
+### Áreas de Conhecimento
+1. **Algoritmos e Estruturas de Dados**: 150 problemas essenciais do LeetCode organizados por padrões
+2. **System Design**: Fundamentos de sistemas escaláveis, componentes e casos de estudo
+3. **Soft Skills**: Comunicação, liderança, trabalho em equipe e gestão de tempo
 
-By following these instructions, you will be well-prepared in using GitHub Copilot for advancing your career as a Senior Software Engineer in Brazil.
+## Instruções para o Copilot
+Ao sugerir código ou conteúdo para este repositório:
+- Priorize clareza e didática nas explicações
+- Mantenha consistência com o estilo existente
+- Use exemplos práticos relacionados ao mercado de trabalho brasileiro
+- Considere o público-alvo: engenheiros de software buscando crescimento para nível sênior
+- Ao modificar navegação, verifique que todos os links estão funcionais

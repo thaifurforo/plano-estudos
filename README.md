@@ -1,18 +1,18 @@
-# 📚 Plano de Estudos - Preparação para Entrevistas Tech
+# 📚 Plano de Estudos - Crescimento para Sênior
 
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://thaifurforo.github.io/plano-estudos/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![MkDocs](https://img.shields.io/badge/MkDocs-Material-526CFE?logo=materialformkdocs)](https://squidfunk.github.io/mkdocs-material/)
 
-> 🎯 **Repositório completo e estruturado de planos de estudos para preparação em entrevistas técnicas, incluindo LeetCode, System Design e Soft Skills.**
+> 🎯 **Repositório completo e estruturado de planos de estudos para crescimento de carreira e desenvolvimento de habilidades de nível sênior em engenharia de software.**
 
 ## 🌟 Visão Geral
 
-Este repositório contém planos de estudos detalhados e estruturados para ajudar na preparação para entrevistas técnicas em empresas de tecnologia. O conteúdo está organizado em três áreas principais:
+Este repositório contém planos de estudos detalhados e estruturados para ajudar no crescimento profissional e no desenvolvimento de habilidades técnicas e comportamentais necessárias para atuar em nível sênior. O conteúdo está organizado em três áreas principais:
 
 - **💻 LeetCode**: 150 problemas essenciais organizados por padrões algorítmicos
 - **🏗️ System Design**: Fundamentos, padrões e casos de estudo de sistemas reais
-- **🤝 Soft Skills**: Comunicação, liderança e entrevistas comportamentais
+- **🤝 Soft Skills**: Comunicação, liderança e desenvolvimento profissional
 
 ## 📊 Acompanhamento de Progresso
 
@@ -70,9 +70,9 @@ plano-estudos/
 
 Cada plano de estudos é independente, mas complementar:
 
-- **Iniciantes**: Comece com LeetCode para construir base algorítmica
-- **Intermediários**: Combine LeetCode com Soft Skills
-- **Avançados**: Adicione System Design ao seu cronograma
+- **Fortalecimento de Base**: Comece com LeetCode para solidificar algoritmos e estruturas de dados
+- **Desenvolvimento Profissional**: Combine LeetCode com Soft Skills para crescimento completo
+- **Visão Arquitetural**: Adicione System Design para desenvolver pensamento sistêmico
 
 ### 2️⃣ Siga o Cronograma
 
@@ -96,20 +96,20 @@ Use a planilha de acompanhamento para registrar:
 |--------|----------|---------------|-------------|
 | 1-4    | ✅ Arrays, Two Pointers, Sliding Window | - | ✅ Comunicação |
 | 5-8    | ✅ Stack, Binary Search, Linked List | ✅ Fundamentos | ✅ Liderança, Trabalho em Equipe |
-| 9-12   | ✅ Trees, Heap, Backtracking | ✅ Casos de Estudo | ✅ Entrevistas Comportamentais |
+| 9-12   | ✅ Trees, Heap, Backtracking | ✅ Casos de Estudo | ✅ Comunicação Profissional |
 
 ### 🚶 Plano Moderado (6 meses)
 | Mês | Foco Principal | Foco Secundário |
 |-----|----------------|-----------------|
 | 1-3 | LeetCode (50 problemas/mês) | Soft Skills (2 tópicos/mês) |
 | 4-5 | System Design (4 tópicos/mês) | LeetCode (revisão) |
-| 6   | Mock Interviews e Revisão | Todos os planos |
+| 6   | Revisão e Consolidação | Todos os planos |
 
 ### 🐢 Plano Gradual (12 meses)
 - **Meses 1-6**: LeetCode (25 problemas/mês)
 - **Meses 7-9**: System Design (3 tópicos/mês)
 - **Meses 10-11**: Soft Skills (3 tópicos/mês)
-- **Mês 12**: Revisão e mock interviews
+- **Mês 12**: Revisão e consolidação
 
 ## 💡 Dicas de Estudo
 
@@ -118,15 +118,15 @@ Use a planilha de acompanhamento para registrar:
 - 📝 Documente seu raciocínio e soluções
 - 🔄 Revise problemas resolvidos semanalmente
 - 👥 Pratique explicando em voz alta (rubber duck debugging)
-- ⏰ Simule ambiente de entrevista com timer
-- 🤝 Participe de mock interviews
+- ⏰ Pratique com limites de tempo para desenvolver agilidade
+- 🤝 Compartilhe conhecimento com colegas e comunidade
 
 ### ❌ Armadilhas a Evitar
 - Não fique preso em um problema por muito tempo (limite: 45min)
-- Não pule a análise de complexidade
-- Não ignore os padrões e templates
-- Não negligencie soft skills
-- Não estude apenas teoria de system design
+- Não pule a análise de complexidade e eficiência
+- Não ignore os padrões e templates que facilitam a resolução
+- Não negligencie soft skills - são essenciais para liderança
+- Não estude apenas teoria - aplique em projetos práticos
 
 ## 🤝 Como Contribuir
 
@@ -176,7 +176,7 @@ mkdocs serve
 - [LeetCode](https://leetcode.com/)
 - [NeetCode](https://neetcode.io/)
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
-- [Pramp](https://www.pramp.com/) - Mock interviews
+- [Exercism](https://exercism.org/) - Prática de código com mentoria
 
 ### 🎥 Canais do YouTube
 - NeetCode
@@ -189,7 +189,7 @@ mkdocs serve
 - **📝 Total de Arquivos**: 35+ documentos
 - **💻 Problemas LeetCode**: 150 problemas categorizados
 - **🏗️ Casos System Design**: 10+ sistemas detalhados
-- **🤝 Exemplos STAR**: 20+ situações comportamentais
+- **🤝 Exemplos Práticos**: 20+ situações profissionais
 - **⏱️ Tempo Total Estimado**: 26 semanas (6 meses)
 
 ## 📄 Licença
@@ -202,7 +202,7 @@ Este repositório foi inspirado e compilado a partir de várias fontes públicas
 - [NeetCode.io](https://neetcode.io/) - Lista curada de problemas
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 - [Blind 75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU)
-- Experiências pessoais em entrevistas
+- Experiências profissionais e aprendizados da comunidade
 
 ## 📞 Contato
 
@@ -213,4 +213,4 @@ Este repositório foi inspirado e compilado a partir de várias fontes públicas
 
 ⭐ **Se este repositório foi útil, considere dar uma estrela!** ⭐
 
-**Boa sorte nos estudos e nas entrevistas! 🚀**
+**Boa sorte nos estudos e no crescimento da sua carreira! 🚀**
