@@ -4,7 +4,7 @@ Bem-vindo ao seu guia completo para crescimento de carreira em engenharia de sof
 
 ## 🎯 Visão Geral
 
-Este repositório oferece **três pilares fundamentais** para seu desenvolvimento profissional:
+Este repositório oferece **quatro pilares fundamentais** para seu desenvolvimento profissional:
 
 ### 💻 LeetCode
 Domine os **150 problemas mais importantes** do LeetCode para fortalecer suas habilidades em algoritmos e estruturas de dados.
@@ -21,20 +21,36 @@ Desenvolva habilidades comportamentais essenciais para liderança e crescimento 
 
 [➡️ Desenvolver Soft Skills](soft-skills/index.md)
 
+### 🎓 Universidade Livre - Ciência da Computação
+Curso completo de **Ciência da Computação** com 35 disciplinas organizadas em 7 etapas. Plano de estudos para **30min/dia** (~3 anos).
+
+[➡️ Começar o Curso](universidade-livre/index.md)
+
 ## 📊 Estatísticas
 
 - **150** problemas LeetCode prioritários
 - **10+** estudos de caso de System Design
 - **20+** exemplos de situações profissionais
-- **26 semanas** de conteúdo (~6 meses)
+- **35** disciplinas de Ciência da Computação
+- **26 semanas** de conteúdo intensivo (~6 meses)
+- **1050 dias** de curso completo (~3 anos com 30min/dia)
 
-## 🗓️ Cronograma Geral
+## 🗓️ Cronogramas Disponíveis
+
+### 📈 Crescimento Rápido (6 meses intensivos)
 
 | Período | Foco | Duração |
 |---------|------|---------|
 | **Semanas 1-12** | LeetCode | 12 semanas |
 | **Semanas 13-20** | System Design | 8 semanas |
 | **Semanas 21-26** | Soft Skills | 6 semanas |
+
+### 🎓 Formação Completa (3 anos com 30min/dia)
+
+| Período | Foco | Duração |
+|---------|------|---------|
+| **Etapas 1-7** | Ciência da Computação Completa | 35 meses |
+| **Pós-curso** | Especializações | Variável |
 
 ## 🚀 Como Começar
 
