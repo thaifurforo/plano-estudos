@@ -92,6 +92,17 @@ nav:
     - Conversas Profissionais: soft-skills/06-entrevistas-comportamentais.md
     - Cronograma 6 Semanas: soft-skills/07-cronograma-6-semanas.md
     - Recursos: soft-skills/recursos.md
+  - Universidade Livre:
+    - Visão Geral: universidade-livre/index.md
+    - 1ª Etapa - Fundamentos: universidade-livre/01-etapa-1.md
+    - 2ª Etapa - Estruturas: universidade-livre/02-etapa-2.md
+    - 3ª Etapa - Algoritmos: universidade-livre/03-etapa-3.md
+    - 4ª Etapa - Análise: universidade-livre/04-etapa-4.md
+    - 5ª Etapa - Sistemas: universidade-livre/05-etapa-5.md
+    - 6ª Etapa - Teoria e IA: universidade-livre/06-etapa-6.md
+    - 7ª Etapa - Avançados: universidade-livre/07-etapa-7.md
+    - Cronograma Completo: universidade-livre/08-cronograma-completo.md
+    - Recursos: universidade-livre/recursos.md
 
 extra:
   social:
