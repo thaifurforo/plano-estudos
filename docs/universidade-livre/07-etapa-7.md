@@ -94,7 +94,7 @@ Esta é a etapa final! Aqui você estudará tópicos avançados e de ponta em Ci
 
 **🎥 Aulas**: [Playlist no YouTube](https://youtube.com/playlist?list=PLUFcRbu9t-v4peHdmDy4rtG3EnbZNS86R&si=hLYHhS2BTKRgNwMJ)
 
-**📖 Leitura Recomendada**: [Bibliografia de Computação Quântica](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/34_quantum_copmputing.md)
+**📖 Leitura Recomendada**: [Bibliografia de Computação Quântica](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/34_quantum_computing.md)
 
 **Pré-requisitos**: Cálculo III, Arquitetura de Computadores II
 

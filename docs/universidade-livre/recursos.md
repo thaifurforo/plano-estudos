@@ -69,7 +69,7 @@ Cada disciplina do curso tem uma lista de leituras recomendadas. Aqui estão os 
 - [Teoria da Computação](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/31_theory_of_computation.md)
 - [Deep Learning](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/32_deep_learning.md)
 - [Compiladores](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/33_compilers.md)
-- [Computação Quântica](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/34_quantum_copmputing.md)
+- [Computação Quântica](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/34_quantum_computing.md)
 - [Metodologia da Pesquisa](https://github.com/Universidade-Livre/ciencia-da-computacao/blob/main/extras/bibliography/35_methodology.md)
 
 ---
